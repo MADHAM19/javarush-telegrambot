@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11:ubi
+FROM adoptopenjdk/openjdk8:ubi
 ARG JAR_FILE=target/*.jar
 ENV BOT_NAME=test_hamza_bot
 ENV BOT_TOKEN=1917018839:AAEHnN08qlE8LsyGoKewFGCwU-q57j8BKrM
