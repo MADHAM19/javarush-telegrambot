@@ -19,9 +19,9 @@ jobs:
         uses: harmon758/postgresql-action@v1
         with:
           postgres version: '11'
-          postgres_db: 'dev_jrtb_db'
-          postgres_user: 'postgres'
-          postgres_password: 'admin888'
+          postgres db: 'dev_jrtb_db'
+          postgres user: 'postgres'
+          postgres password: 'admin888'
       - name: Set up JDK 1.11
         uses: actions/setup-java@v2
         with:
