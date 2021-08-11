@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up PostgreSQL
-        uses: mirromutth/postgres-action@v1.1
+        uses: harmon758/postgresql-action@v1
         with:
           postgres version: '13.3'
           postgres db: 'dev_jrtb_db'
