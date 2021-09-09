@@ -5,11 +5,12 @@ package com.github.javarushcommunity.jrtb.command;
  */
 public enum CommandName {
 
-    START("/start"),
-    STOP("/stop"),
-    NO("/no"),
-    STAT("/stat"),
-    HELP("/help");
+    START ("/start"),
+    STOP ("/stop"),
+    NO ("/no"),
+    STAT ("/stat"),
+    ADD_GROUP_SUB("/addgroupsub"),
+    HELP ("/help");
 
     private final String commandName;
 

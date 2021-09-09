@@ -37,4 +37,6 @@ public class SendBotMessageServiceTest {
         //then
         Mockito.verify(javarushBot).execute(sendMessage);
     }
+
+
 }
