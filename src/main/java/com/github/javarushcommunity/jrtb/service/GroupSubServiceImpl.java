@@ -28,12 +28,12 @@ public class GroupSubServiceImpl implements GroupSubService {
         //TODO add exception handling
         GroupSub groupSub;
         Optional<GroupSub> groupSubFromDB = groupSubRepository.findById(groupDiscussionInfo.getId());
-        if (groupSubFromDB.isPresent()) {
+        if(groupSubFromDB.isPresent()) {
             groupSub = groupSubFromDB.get();
             Optional<TelegramUser> first = groupSub.getUsers().stream()
                     .filter(it -> it.getChatId().equalsIgnoreCase(chatId))
                     .findFirst();
-            if (first.isEmpty()) {
+            if(first.isEmpty()) {
                 groupSub.addUser(telegramUser);
             }
         } else {
@@ -43,5 +43,15 @@ public class GroupSubServiceImpl implements GroupSubService {
             groupSub.setTitle(groupDiscussionInfo.getTitle());
         }
         return groupSubRepository.save(groupSub);
+    }
+
+    @Override
+    public GroupSub save(GroupSub groupSub) {
+        return groupSubRepository.save(groupSub);
+    }
+
+    @Override
+    public Optional<GroupSub> findById(Integer id) {
+        return groupSubRepository.findById(id);
     }
 }
