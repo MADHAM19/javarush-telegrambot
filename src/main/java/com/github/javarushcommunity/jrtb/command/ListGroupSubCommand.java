@@ -4,6 +4,7 @@ import com.github.javarushcommunity.jrtb.repository.entity.GroupSub;
 import com.github.javarushcommunity.jrtb.repository.entity.TelegramUser;
 import com.github.javarushcommunity.jrtb.service.SendBotMessageService;
 import com.github.javarushcommunity.jrtb.service.TelegramUserService;
+import org.springframework.util.CollectionUtils;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import javax.ws.rs.NotFoundException;
@@ -30,8 +31,8 @@ public class ListGroupSubCommand implements Command {
         TelegramUser telegramUser = telegramUserService.findByChatId(getChatId(update))
                 .orElseThrow(NotFoundException::new);
         String message;
-        if(telegramUser.getGroupSubs().isEmpty()) {
-            message = "Пока нет подписок на группы. Чтобы добавить подписку напиши /addgroupsub";
+        if(CollectionUtils.isEmpty(telegramUser.getGroupSubs())) {
+            message = "Пока нет подписок на группы. Чтобы добавить подписку напиши /addGroupSub";
         } else {
             String collectedGroups = telegramUser.getGroupSubs().stream()
                     .map(it -> "Группа: " + it.getTitle() + " , ID = " + it.getId() + " \n")
