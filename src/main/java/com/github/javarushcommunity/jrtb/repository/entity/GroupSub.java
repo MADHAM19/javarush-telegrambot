@@ -24,6 +24,9 @@ public class GroupSub {
     @Column(name = "last_article_id")
     private Integer lastArticleId;
 
+//    @Column(name = "last_post_id")
+//    private Integer lastPostId;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "group_x_user",
