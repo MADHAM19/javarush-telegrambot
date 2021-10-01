@@ -24,7 +24,6 @@ public class GroupSubServiceTest {
     private final static Integer GROUP_ID = 1123;
     private final static Integer LAST_POST_ID = 310;
 
-
     @BeforeEach
     public void init() {
         TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
