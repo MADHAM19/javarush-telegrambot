@@ -46,5 +46,5 @@ public interface JavaRushGroupClient {
 
     Integer findLastPostId(Integer groupSub);
 
-    Integer findLastArticleId(Integer groupSub);
+    //Integer findLastArticleId(Integer groupSub);
 }

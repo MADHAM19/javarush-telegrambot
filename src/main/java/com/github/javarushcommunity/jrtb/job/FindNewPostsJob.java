@@ -1,6 +1,6 @@
 package com.github.javarushcommunity.jrtb.job;
 
-import com.github.javarushcommunity.jrtb.service.FindNewArticleService;
+import com.github.javarushcommunity.jrtb.service.FindNewPostService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -14,22 +14,22 @@ import java.time.ZoneOffset;
  */
 @Slf4j
 @Component
-public class FindNewArticlesJob {
+public class FindNewPostsJob {
 
-    private final FindNewArticleService findNewArticleService;
+    private final FindNewPostService findNewPostService;
 
     @Autowired
-    public FindNewArticlesJob(FindNewArticleService findNewArticleService) {
-        this.findNewArticleService = findNewArticleService;
+    public FindNewPostsJob(FindNewPostService findNewPostService) {
+        this.findNewPostService = findNewPostService;
     }
 
-    @Scheduled(fixedRateString = "${bot.recountNewArticleFixedRate}")
-    public void findNewArticles() {
+    @Scheduled(fixedRateString = "${bot.recountNewPostFixedRate}")
+    public void findNewPost() {
         LocalDateTime start = LocalDateTime.now();
 
-        log.info("Find new article job started.");
+        log.info("Find new post job started.");
 
-        findNewArticleService.findNewArticles();
+        findNewPostService.findNewPosts();
 
         LocalDateTime end = LocalDateTime.now();
 

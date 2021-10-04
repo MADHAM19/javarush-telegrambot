@@ -27,7 +27,7 @@ public class GroupSubServiceImpl implements GroupSubService {
     }
 
     @Override
-    public GroupSub save(String chatId, GroupDiscussionInfo groupDiscussionInfo) {
+    public GroupSub save(Long chatId, GroupDiscussionInfo groupDiscussionInfo) {
         TelegramUser telegramUser = telegramUserService.findByChatId(chatId).orElseThrow(NotFoundException::new);
         //TODO add exception handling
         GroupSub groupSub;
@@ -43,7 +43,7 @@ public class GroupSubServiceImpl implements GroupSubService {
         } else {
             groupSub = new GroupSub();
             groupSub.addUser(telegramUser);
-            groupSub.setLastArticleId(javaRushGroupClient.findLastPostId(groupDiscussionInfo.getId()));
+            groupSub.setLastPostId(javaRushGroupClient.findLastPostId(groupDiscussionInfo.getId()));
             groupSub.setId(groupDiscussionInfo.getId());
             groupSub.setTitle(groupDiscussionInfo.getTitle());
         }
