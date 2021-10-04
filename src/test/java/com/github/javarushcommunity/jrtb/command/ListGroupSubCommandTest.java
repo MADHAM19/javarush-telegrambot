@@ -25,7 +25,7 @@ public class ListGroupSubCommandTest {
         //given
         TelegramUser telegramUser = new TelegramUser();
         telegramUser.setActive(true);
-        telegramUser.setChatId("1");
+        telegramUser.setChatId(12L);
 
         List<GroupSub> groupSubList = new ArrayList<>();
         groupSubList.add(populateGroupSub(1, "gs1"));

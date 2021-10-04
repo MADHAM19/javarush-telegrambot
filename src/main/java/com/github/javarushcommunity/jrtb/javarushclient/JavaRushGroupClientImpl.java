@@ -61,17 +61,17 @@ public class JavaRushGroupClientImpl implements JavaRushGroupClient {
                 .getBody();
     }
 
-    @Override
-    public Integer findLastArticleId(Integer groupSubId) {
-        List<PostInfo> posts = Unirest.get(getJavarushApiPostPath)
-                .queryString("order", "NEW")
-                .queryString("groupKid", groupSubId.toString())
-                .queryString("limit", "1")
-                .asObject(new GenericType<List<PostInfo>>() {
-                })
-                .getBody();
-        return isEmpty(posts) ? 0 : Optional.ofNullable(posts.get(0)).map(PostInfo::getId).orElse(0);
-    }
+//    @Override
+//    public Integer findLastArticleId(Integer groupSubId) {
+//        List<PostInfo> posts = Unirest.get(getJavarushApiPostPath)
+//                .queryString("order", "NEW")
+//                .queryString("groupKid", groupSubId.toString())
+//                .queryString("limit", "1")
+//                .asObject(new GenericType<List<PostInfo>>() {
+//                })
+//                .getBody();
+//        return isEmpty(posts) ? 0 : Optional.ofNullable(posts.get(0)).map(PostInfo::getId).orElse(0);
+//    }
 
     @Override
     public Integer findLastPostId(Integer groupSubId) {
